@@ -1,0 +1,40 @@
+{
+  "name": "discord-vc-timetracker",
+  "version": "0.0.1",
+  "description": "Track voice call time in Discord",
+  "main": "main.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "enve": "^1.0.4",
+    "humanize-duration": "^3.22.0",
+    "timer-machine": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "minimist": "^1.2.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchangrh/discord-vc-timetracker.git"
+  },
+  "keywords": [
+    "discord",
+    "discord.js"
+  ],
+  "author": "Michael Chang <michael@mchang.name> (https://mchang.name)",
+  "license": "ISC",
+  "eslint": "eslint --ignore-path .gitignore .",
+  "bugs": {
+    "url": "https://github.com/mchangrh/discord-vc-timetracker"
+  },
+  "homepage": "https://github.com/mchangrh/discord-vc-timetracker#readme"
+}
