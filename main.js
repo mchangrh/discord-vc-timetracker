@@ -23,7 +23,7 @@ const client = new Discord.Client()
 client.on('ready', () => {
   console.log('Ready')
   client.user.setPresence({ // set presence
-    game: { name: process.enve.NAME },
+    activity: { type: process.enve.ACT_TYPE, name: process.enve.ACT_NAME },
     status: process.enve.STATUS
   })
 })
@@ -50,7 +50,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase()
     // check validity of commands
     if (command === 'stats') {
-      prefetch(message)
+      prefetch(message.guild)
       message.channel.send(retreiveStat()) // retreive all stats
     } else if (command === 'prefetch') {
       prefetch(message.guild)
@@ -60,16 +60,15 @@ client.on('message', message => {
   }
 })
 
-async function prefetch (message) {
+async function prefetch (guild) {
   // files
   var userFile = files.user.json
   for (var id in files.stat.json) { // iterate over members in stats
-    message.guild.members.fetch(id)
+    guild.members.fetch(id)
       .then(res => { // assign usernames and write
         userFile[id] = res.user.username
         fileWriter(files.user.fileName, userFile)
       })
-      .then(message.channel.send('prefetched usernames')) // send response
   }
 }
 
