@@ -54,6 +54,10 @@ client.on('message', message => {
       message.channel.send(retreiveStat()) // retreive all stats
     } else if (command === 'prefetch') {
       prefetch(message.guild)
+    } else if (command === 'time') {
+      getTime(message) // get time
+    } else if (command === 'record') {
+      record(message) // record current time to quit
     } else {
       return 'invalid command'
     }
@@ -70,6 +74,19 @@ async function prefetch (guild) {
         fileWriter(files.user.fileName, userFile)
       })
   }
+}
+
+// get current call time
+function getTime (message) {
+  return Timer.get(message.author.userID).time()
+}
+
+function record (message) {
+  const userID = message.id // set up userID
+  var timer = Timer.get(userID) // end timer
+  timer.stop()
+  addStat(userID, timer.time()) // send to stat handler
+  Timer.destroy(userID)
 }
 
 // get stats from file
