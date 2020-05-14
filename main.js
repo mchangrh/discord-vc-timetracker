@@ -22,11 +22,8 @@ const client = new Discord.Client()
 
 client.on('ready', () => {
   console.log('Ready')
-  // set presence
-  client.user.setPresence({
-    game: {
-      name: process.enve.NAME
-    },
+  client.user.setPresence({ // set presence
+    game: { name: process.enve.NAME },
     status: process.enve.STATUS
   })
 })
@@ -43,22 +40,17 @@ client.on('voiceStateUpdate', function (oldState, newState) {
     addStat(userID, timer.time()) // send to stat handler
     Timer.destroy(userID)
   // case for connect
-  } else {
-    Timer.get(userID).start() // start new timer
-  }
+  } else { Timer.get(userID).start() } // start new timer
 })
 
 client.on('message', message => {
   const prefix = process.enve.PREFIX // set prefix
-  // check if sent by self
-  if (message.author.bot) return
-  if (message.content.startsWith(prefix)) {
-    // splitting
-    const args = message.content.slice(prefix.length).split(' ')
+  if (!message.author.bot && message.content.startsWith(prefix)) { // check if sent by self & check for prefix
+    const args = message.content.slice(prefix.length).split(' ') // split
     const command = args.shift().toLowerCase()
     // check validity of commands
     if (command === 'stats') {
-      prefetch(message.guild) // prefetch usernames
+      prefetch(message.guild)
       message.channel.send(retreiveStat()) // retreive all stats
     } else if (command === 'prefetch') {
       prefetch(message.guild)
