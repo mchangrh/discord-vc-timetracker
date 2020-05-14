@@ -50,7 +50,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase()
     // check validity of commands
     if (command === 'stats') {
-      prefetch(message.guild)
+      prefetch(message)
       message.channel.send(retreiveStat()) // retreive all stats
     } else if (command === 'prefetch') {
       prefetch(message.guild)
@@ -60,15 +60,16 @@ client.on('message', message => {
   }
 })
 
-async function prefetch (guild) {
+async function prefetch (message) {
   // files
   var userFile = files.user.json
   for (var id in files.stat.json) { // iterate over members in stats
-    guild.members.fetch(id)
+    message.guild.members.fetch(id)
       .then(res => { // assign usernames and write
         userFile[id] = res.user.username
         fileWriter(files.user.fileName, userFile)
       })
+      .then(message.channel.send('prefetched usernames')) // send response
   }
 }
 
@@ -80,6 +81,7 @@ function retreiveStat () {
     // nickname : humanizedTime \n
     message += (files.user.json[id] + ' : ' + humanize(files.stat.json[id]) + '\n')
   }
+  if (message === '') { message = 'No Stats' } // if message still empty
   return message
 }
 
