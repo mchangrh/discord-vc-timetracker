@@ -1,0 +1,10 @@
+{
+    "err": {
+        "invalidCommand" :  "invalid command \nstats - display stats for all users \nprefetch - prefetch usernames for users \ntime - get current call time \nrecord - record current times",
+        "noTimerRunning": "no current timer running or invalid user ID",
+        "noStat": "No Stats"
+    },
+    "recordSuccessful": "stopped and recorded",
+    "userFetched": "usernamed fetched",
+    "runningPrefetch": "running prefetch"
+}
