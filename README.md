@@ -11,6 +11,8 @@ To prove a point about being in discord call(s) longer
 
 !stats: display all stats  
 !prefetch: prefetch usernames to avoid "undefined" errors
+!time: get current call time
+!record: record current call times
 
 dependencies: [discord.js](discord.js.org), [dotenv](https://www.npmjs.com/package/dotenv), [timer-machine](https://www.npmjs.com/package/timer-machine), [humanize-duration](humanize-duration)
 
@@ -27,5 +29,3 @@ View Channels + Read Messages
  `status:` status of bot - `online`, `idle`, `invisible`, `dnd`  
  `token`: your super secret token from [discord](https://discordapp.com/developers/applications/)  
  `prefix`: your desired prefix for the bot to respond to  
- `statfile`: json file for stats  
- `userfile`: json file for fetched usernames from IDs
