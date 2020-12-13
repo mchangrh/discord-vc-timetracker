@@ -4,19 +4,19 @@
   "description": "Track voice call time in Discord",
   "main": "main.js",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "enve": "^1.0.4",
-    "humanize-duration": "^3.22.0",
+    "humanize-duration": "^3.25.0",
     "timer-machine": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.0.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-standard": "^4.1.0",
     "minimist": "^1.2.5"
   },
   "scripts": {
