@@ -1,6 +1,5 @@
 // imports
 require('dotenv').config()
-require('enve')
 const Discord = require('discord.js')
 const strings = require('./src/strings.json') // strings
 const helper = require('./src/helper.js') // helper
@@ -28,9 +27,7 @@ client.on('message', message => {
   const prefix = process.enve.PREFIX // set prefix
   if (!message.author.bot && message.content.startsWith(prefix)) { // check if sent by self & check for prefix
     var args = message.content.slice(prefix.length).split(' ') // split
-    console.log(args)
     const command = args.shift().toLowerCase()
-    console.log(args)
     var response
     // run appropiate command
     if (command === 'prefetch') { // prefetch username
